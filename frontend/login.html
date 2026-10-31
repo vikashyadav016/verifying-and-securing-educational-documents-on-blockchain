@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portal Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="page">
+        <header class="hero reveal">
+            <div class="hero-content">
+                <div class="kicker">Digital Certificate Verification System</div>
+                <h1>Continue with your role</h1>
+                <p>Schools can register and sign in. Admins approve schools and upload to blockchain.</p>
+            </div>
+            <div class="hero-card">
+                <ul>
+                    <li><span class="pill">School</span> Register or login</li>
+                    <li><span class="pill">Admin</span> Review approvals and inbox</li>
+                </ul>
+            </div>
+        </header>
+
+        <main class="auth-grid">
+            <section class="panel reveal">
+                <h2>School Access</h2>
+                <p>Start by registering your school or sign in with your password.</p>
+                <div class="actions">
+                    <a class="btn primary" href="school-register.html" style="text-decoration:none;">School register</a>
+                    <a class="btn ghost" href="school-login.html" style="text-decoration:none;">School login</a>
+                </div>
+            </section>
+
+            <section class="panel reveal">
+                <h2>Administration</h2>
+                <p>Login to approve schools and manage certificate submissions.</p>
+                <div class="actions">
+                    <a class="btn secondary" href="admin-login.html" style="text-decoration:none;">Admin login</a>
+                </div>
+            </section>
+
+            <section class="panel reveal">
+                <h2>Public Verification</h2>
+                <p>Anyone can upload a PDF here to check whether it is already on the blockchain.</p>
+                <form id="publicVerifyForm" class="list">
+                    <div class="field">
+                        <label for="publicVerifyFile">Certificate PDF</label>
+                        <input type="file" id="publicVerifyFile" accept=".pdf" required>
+                    </div>
+                    <button class="btn primary" type="submit">Verify certificate</button>
+                </form>
+                <div class="status" id="publicVerifyStatus" aria-live="polite"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+
+</html>

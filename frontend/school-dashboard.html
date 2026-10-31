@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>School Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="page">
+        <header class="hero reveal">
+            <div class="hero-content">
+                <div class="kicker">School Dashboard</div>
+                <h1>Create and submit certificates for your approved school.</h1>
+                <p>Generate PDFs and send them to admin for blockchain upload.</p>
+                <div class="hero-actions">
+                    <a class="btn ghost" href="login.html" style="text-decoration:none;">Back to login</a>
+                    <button class="btn primary" id="scrollGenerate">Generate certificate</button>
+                </div>
+            </div>
+            <div class="hero-card">
+                <ul>
+                    <li><span class="pill">Step 1</span> Generate PDF</li>
+                    <li><span class="pill">Step 2</span> Submit to admin</li>
+                </ul>
+            </div>
+        </header>
+
+        <main class="grid">
+            <section class="card full reveal" id="sessionSection">
+                <div class="step">Session</div>
+                <h2>Current school</h2>
+                <p class="badge" id="sessionBadge">Not logged in</p>
+                <div class="actions">
+                    <button class="btn ghost" id="logoutBtn" type="button">Logout</button>
+                </div>
+                <div class="status" id="sessionStatus" aria-live="polite"></div>
+            </section>
+
+            <section class="card full reveal" id="generateSection">
+                <div class="step">Generate Certificate</div>
+                <h2>Student certificate details</h2>
+                <p>Create a new certificate for an approved school.</p>
+
+                <form id="detailsForm" class="form-grid" autocomplete="off">
+                    <div class="field">
+                        <label for="studentId">Student ID</label>
+                        <input id="studentId" name="student_id" type="text" placeholder="001" required>
+                    </div>
+                    <div class="field">
+                        <label for="schoolNameCert">School name</label>
+                        <input id="schoolNameCert" name="school" type="text" placeholder="Loaded from profile" readonly>
+                    </div>
+                    <div class="field">
+                        <label for="schoolBoardCert">Board</label>
+                        <input id="schoolBoardCert" name="board" type="text" placeholder="Loaded from profile" readonly>
+                    </div>
+                    <div class="field">
+                        <label for="firstName">First name</label>
+                        <input id="firstName" name="first_name" type="text" placeholder="Ava" required>
+                    </div>
+                    <div class="field">
+                        <label for="lastName">Last name</label>
+                        <input id="lastName" name="last_name" type="text" placeholder="Martin" required>
+                    </div>
+                    <div class="field">
+                        <label for="gender">Gender</label>
+                        <select id="gender" name="gender">
+                            <option value="Female">Female</option>
+                            <option value="Male">Male</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="session">Session</label>
+                        <input id="session" name="session" type="text" value="2025-2026">
+                    </div>
+                </form>
+
+                <div class="subject-area">
+                    <label>Subject marks (0-100)</label>
+                    <div class="subject-grid" id="subjectGrid">
+                        <div class="field"><input type="number" min="0" max="100" id="mathScore"
+                            placeholder="Mathematics"></div>
+                        <div class="field"><input type="number" min="0" max="100" id="historyScore"
+                            placeholder="History"></div>
+                        <div class="field"><input type="number" min="0" max="100" id="physicsScore"
+                            placeholder="Physics"></div>
+                        <div class="field"><input type="number" min="0" max="100" id="chemistryScore"
+                            placeholder="Chemistry"></div>
+                        <div class="field"><input type="number" min="0" max="100" id="biologyScore"
+                            placeholder="Biology"></div>
+                        <div class="field"><input type="number" min="0" max="100" id="englishScore"
+                            placeholder="English"></div>
+                        <div class="field"><input type="number" min="0" max="100" id="geographyScore"
+                            placeholder="Geography"></div>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button class="btn primary" id="generateBtn">Generate certificate PDF</button>
+                    <button class="btn ghost" id="resetBtn" type="button">Reset form</button>
+                </div>
+                <div class="status info" id="generateStatus" aria-live="polite"></div>
+            </section>
+
+            <section class="card full reveal" id="certificateSection">
+                <div class="step">Preview & Submit</div>
+                <h2>Certificate preview</h2>
+                <p>Review the PDF and send it to admin for blockchain upload.</p>
+
+                <div class="preview" id="previewBox">
+                    <div>
+                        <strong>No certificate yet.</strong>
+                        <p>Generate a certificate to see the preview here.</p>
+                    </div>
+                </div>
+
+                <div class="summary" id="summaryBox"></div>
+
+                <div class="actions">
+                    <a class="btn secondary" id="downloadBtn" href="#" download="certificate.pdf"
+                        style="display:none; text-decoration:none;">Download PDF</a>
+                    <button class="btn primary" id="sendToAdminBtn" style="display:none;" type="button">Submit to admin</button>
+                </div>
+                <div class="status" id="submitStatus" aria-live="polite"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="school-dashboard.js"></script>
+</body>
+
+</html>

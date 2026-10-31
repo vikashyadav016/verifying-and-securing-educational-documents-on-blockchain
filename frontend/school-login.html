@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>School Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="page">
+        <header class="hero reveal">
+            <div class="hero-content">
+                <div class="kicker">School Login</div>
+                <h1>Sign in with your school ID and password.</h1>
+                <p>Only approved schools can generate certificates.</p>
+                <div class="hero-actions">
+                    <a class="btn ghost" href="login.html" style="text-decoration:none;">Back to login</a>
+                    <a class="btn primary" href="school-register.html" style="text-decoration:none;">Register school</a>
+                </div>
+            </div>
+            <div class="hero-card">
+                <ul>
+                    <li><span class="pill">Password</span> Created at registration</li>
+                    <li><span class="pill">Access</span> Generate certificates</li>
+                </ul>
+            </div>
+        </header>
+
+        <main class="auth-grid">
+            <section class="panel reveal">
+                <h2>School login</h2>
+                <form id="schoolLoginForm" class="list">
+                    <div class="field">
+                        <label for="loginSchoolId">School ID</label>
+                        <input id="loginSchoolId" type="text" placeholder="SCH-001" required>
+                    </div>
+                    <div class="field">
+                        <label for="schoolPassword">School password</label>
+                        <input id="schoolPassword" type="password" placeholder="Enter password" required>
+                    </div>
+                    <button class="btn secondary" type="submit">Login</button>
+                </form>
+                <div class="status" id="loginStatus" aria-live="polite"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="school-login.js"></script>
+</body>
+
+</html>

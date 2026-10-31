@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Certificate Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="page">
+        <header class="hero reveal">
+            <div class="hero-content">
+                <div class="kicker">Certificate Studio</div>
+                <h1>Generate, review, and secure certificates on chain.</h1>
+                <p>
+                    Submit student details, preview the certificate instantly, and route it to the admin team for
+                    blockchain registration. Every step stays in a single flow.
+                </p>
+                <div class="hero-actions">
+                    <button class="btn primary" id="jumpGenerate">Start a new certificate</button>
+                    <button class="btn ghost" id="jumpVerify">Verify an existing PDF</button>
+                </div>
+            </div>
+            <div class="hero-card">
+                <ul>
+                    <li><span class="pill">Step 1</span> Collect details and marks</li>
+                    <li><span class="pill">Step 2</span> Generate the PDF certificate</li>
+                    <li><span class="pill">Step 3</span> Admin checks and uploads</li>
+                </ul>
+            </div>
+        </header>
+
+        <main class="grid">
+            <section class="card full reveal" id="generateSection">
+                <div class="step">Step 1</div>
+                <h2>Submit student details</h2>
+                <p>Fill out the details below to generate a certificate PDF instantly.</p>
+
+                <form id="detailsForm" class="form-grid" autocomplete="off">
+                    <div class="field">
+                        <label for="studentId">Student ID</label>
+                        <input id="studentId" name="student_id" type="text" placeholder="001" required>
+                    </div>
+                    <div class="field">
+                        <label for="school">School</label>
+                        <input id="school" name="school" type="text" value="Zurich High School">
+                    </div>
+                    <div class="field">
+                        <label for="firstName">First name</label>
+                        <input id="firstName" name="first_name" type="text" placeholder="Ava" required>
+                    </div>
+                    <div class="field">
+                        <label for="lastName">Last name</label>
+                        <input id="lastName" name="last_name" type="text" placeholder="Martin" required>
+                    </div>
+                    <div class="field">
+                        <label for="gender">Gender</label>
+                        <select id="gender" name="gender">
+                            <option value="Female">Female</option>
+                            <option value="Male">Male</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="session">Session</label>
+                        <input id="session" name="session" type="text" value="2025-2026">
+                    </div>
+                </form>
+
+                <div class="subject-area">
+                    <label>Subject marks (0-100)</label>
+                    <div class="subject-grid" id="subjectGrid">
+                        <div class="field"><input type="number" min="0" max="100" id="mathScore"
+                                placeholder="Mathematics" value="86"></div>
+                        <div class="field"><input type="number" min="0" max="100" id="historyScore"
+                                placeholder="History" value="81"></div>
+                        <div class="field"><input type="number" min="0" max="100" id="physicsScore"
+                                placeholder="Physics" value="88"></div>
+                        <div class="field"><input type="number" min="0" max="100" id="chemistryScore"
+                                placeholder="Chemistry" value="79"></div>
+                        <div class="field"><input type="number" min="0" max="100" id="biologyScore"
+                                placeholder="Biology" value="90"></div>
+                        <div class="field"><input type="number" min="0" max="100" id="englishScore"
+                                placeholder="English" value="92"></div>
+                        <div class="field"><input type="number" min="0" max="100" id="geographyScore"
+                                placeholder="Geography" value="84"></div>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button class="btn primary" id="generateBtn">Generate certificate PDF</button>
+                    <button class="btn ghost" id="resetBtn" type="button">Reset form</button>
+                </div>
+                <div class="status info" id="generateStatus" aria-live="polite"></div>
+            </section>
+
+            <section class="card half reveal" id="certificateSection">
+                <div class="step">Step 2</div>
+                <h2>Certificate preview</h2>
+                <p>Review the PDF and send it to admin for blockchain upload.</p>
+
+                <div class="preview" id="previewBox">
+                    <div>
+                        <strong>No certificate yet.</strong>
+                        <p>Generate a certificate to see the preview here.</p>
+                    </div>
+                </div>
+
+                <div class="summary" id="summaryBox"></div>
+
+                <div class="actions">
+                    <a class="btn secondary" id="downloadBtn" href="#" download="certificate.pdf"
+                        style="display:none; text-decoration:none;">Download PDF</a>
+                </div>
+            </section>
+
+            <section class="card half reveal" id="adminSection">
+                <div class="step">Step 3</div>
+                <h2>Admin check and upload</h2>
+                <p>Verify the certificate and upload it to the blockchain registry.</p>
+
+                <div class="toggle">
+                    <label>
+                        <input type="radio" name="adminSource" value="generated" id="sourceGenerated" checked>
+                        <span>Use generated certificate</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="adminSource" value="upload" id="sourceUpload">
+                        <span>Upload a PDF</span>
+                    </label>
+                </div>
+
+                <div class="field" id="adminFileField" style="display:none;">
+                    <label for="adminFile">Certificate PDF</label>
+                    <input type="file" id="adminFile" accept=".pdf">
+                </div>
+
+                <div class="field">
+                    <label for="adminPassword">Admin password</label>
+                    <input type="password" id="adminPassword" placeholder="Enter admin password">
+                </div>
+
+                <div class="actions">
+                    <button class="btn ghost" id="adminVerifyBtn">Check on blockchain</button>
+                    <button class="btn primary" id="adminUploadBtn">Upload to blockchain</button>
+                </div>
+                <div class="status" id="adminStatus" aria-live="polite"></div>
+            </section>
+
+            <section class="card full reveal" id="verifySection">
+                <div class="step">Public verification</div>
+                <h2>Verify any certificate</h2>
+                <p>Upload a PDF to check if it already exists in the blockchain registry.</p>
+                <div class="field">
+                    <label for="verifyFile">Certificate PDF</label>
+                    <input type="file" id="verifyFile" accept=".pdf">
+                </div>
+                <div class="actions">
+                    <button class="btn secondary" id="verifyBtn">Verify certificate</button>
+                </div>
+                <div class="status" id="verifyStatus" aria-live="polite"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

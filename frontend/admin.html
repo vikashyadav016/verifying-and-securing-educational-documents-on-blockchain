@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+    <div class="page">
+        <header class="hero reveal">
+            <div class="hero-content">
+                <div class="kicker">Admin Console</div>
+                <h1>Approve schools and manage the certificate portal.</h1>
+                <p>Review school requests and manage approved schools.</p>
+                <div class="hero-actions">
+                    <a class="btn ghost" href="login.html" style="text-decoration:none;">Back to login</a>
+                    <button class="btn secondary" id="jumpApprovedBtn" type="button">View approved schools</button>
+                    <button class="btn primary" id="refreshBtn">Refresh data</button>
+                </div>
+            </div>
+            <div class="hero-card">
+                <ul>
+                    <li><span class="pill">Admin</span> Review school approvals</li>
+                    <li><span class="pill">Schools</span> Manage approved schools</li>
+                </ul>
+            </div>
+        </header>
+
+        <main class="grid">
+            <section class="card full reveal" id="adminSession">
+                <div class="step">Admin Session</div>
+                <h2>Logged in as</h2>
+                <p class="badge" id="adminBadge">Not logged in</p>
+                <div class="actions">
+                    <button class="btn ghost" id="logoutBtn" type="button">Logout</button>
+                </div>
+                <div class="status" id="adminStatus" aria-live="polite"></div>
+            </section>
+
+            <section class="card full reveal">
+                <div class="step">School Requests</div>
+                <h2>Pending approvals</h2>
+                <div class="status" id="requestStatus" aria-live="polite"></div>
+                <div id="requestsContainer"></div>
+            </section>
+
+            <details class="card full reveal collapsible" id="approvedSchoolsSection">
+                <summary>
+                    <div>
+                        <div class="step">Approved Schools</div>
+                        <h2>Approved schools</h2>
+                    </div>
+                    <span class="badge" id="approvedCount">0 approved</span>
+                </summary>
+                <div class="card-body">
+                    <div class="status" id="approvedStatus" aria-live="polite"></div>
+                    <div class="scroll-box" id="approvedContainer"></div>
+                </div>
+            </details>
+
+            <details class="card full reveal collapsible" id="submissionsSection">
+                <summary>
+                    <div>
+                        <div class="step">Pending Submissions</div>
+                        <h2>Pending certificates</h2>
+                    </div>
+                    <span class="selection-count" id="selectionCount">0 / 200 selected</span>
+                </summary>
+                <div class="card-body">
+                    <p>Choose hashes to upload them to the blockchain in a single transaction.</p>
+                    <div class="actions">
+                        <button class="btn ghost" id="selectAllPendingBtn" type="button">Select all pending</button>
+                        <button class="btn ghost" id="clearSelectionBtn" type="button">Clear selection</button>
+                        <button class="btn primary" id="bulkUploadBtn" type="button">Upload selected hashes</button>
+                    </div>
+                    <div class="field">
+                        <label for="blockchainPassword">Blockchain admin password</label>
+                        <input id="blockchainPassword" type="password" placeholder="Use ADMIN_PASSWORD">
+                    </div>
+                    <div class="status" id="bulkStatus" aria-live="polite"></div>
+                    <div class="status" id="submissionStatus" aria-live="polite"></div>
+                    <div class="scroll-box" id="submissionsContainer"></div>
+                </div>
+            </details>
+
+            <details class="card full reveal collapsible" id="uploadedSection">
+                <summary>
+                    <div>
+                        <div class="step">Uploaded Certificates</div>
+                        <h2>Uploaded certificates</h2>
+                    </div>
+                    <span class="badge" id="uploadedCount">0 uploaded</span>
+                </summary>
+                <div class="card-body">
+                    <p>Archived certificates already uploaded to the blockchain.</p>
+                    <div class="status" id="uploadedStatus" aria-live="polite"></div>
+                    <div class="scroll-box uploaded-box" id="uploadedContainer"></div>
+                </div>
+            </details>
+        </main>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+
+</html>

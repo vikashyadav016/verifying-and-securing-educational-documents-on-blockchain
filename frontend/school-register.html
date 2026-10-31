@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>School Registration</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="page">
+        <header class="hero reveal">
+            <div class="hero-content">
+                <div class="kicker">School Registration</div>
+                <h1>Request approval for your school.</h1>
+                <p>Provide official details so the admin can verify your school.</p>
+                <div class="hero-actions">
+                    <a class="btn ghost" href="login.html" style="text-decoration:none;">Back to login</a>
+                    <a class="btn primary" href="school-login.html" style="text-decoration:none;">Already approved?</a>
+                </div>
+            </div>
+            <div class="hero-card">
+                <ul>
+                    <li><span class="pill">Step 1</span> Submit school request</li>
+                    <li><span class="pill">Step 2</span> Await admin approval</li>
+                </ul>
+            </div>
+        </header>
+
+        <main class="grid">
+            <section class="card full reveal" id="registerSection">
+                <div class="step">Registration</div>
+                <h2>School details</h2>
+                <form id="schoolRegisterForm" class="form-grid">
+                    <div class="field">
+                        <label for="schoolId">School ID</label>
+                        <input id="schoolId" type="text" placeholder="SCH-001" required>
+                    </div>
+                    <div class="field">
+                        <label for="schoolName">School name</label>
+                        <input id="schoolName" type="text" placeholder="Zurich High School" required>
+                    </div>
+                    <div class="field">
+                        <label for="schoolBoard">Board</label>
+                        <input id="schoolBoard" type="text" placeholder="European Board" required>
+                    </div>
+                    <div class="field">
+                        <label for="chairmanName">Chairman of board</label>
+                        <input id="chairmanName" type="text" placeholder="Dr. Rakesh Mehta" required>
+                    </div>
+                    <div class="field">
+                        <label for="classTeacherName">Class teacher (10th)</label>
+                        <input id="classTeacherName" type="text" placeholder="Ms. Anita Roy" required>
+                    </div>
+                    <div class="field">
+                        <label for="principalName">Principal</label>
+                        <input id="principalName" type="text" placeholder="Mr. Sunil Kapoor" required>
+                    </div>
+                    <div class="field">
+                        <label for="schoolPassword">School password</label>
+                        <input id="schoolPassword" type="password" placeholder="Create a password" required>
+                    </div>
+                    <div class="field">
+                        <label for="schoolPasswordConfirm">Confirm password</label>
+                        <input id="schoolPasswordConfirm" type="password" placeholder="Confirm password" required>
+                    </div>
+                    <div class="field">
+                        <label for="contactName">Contact name</label>
+                        <input id="contactName" type="text" placeholder="Sara Patel">
+                    </div>
+                    <div class="field">
+                        <label for="contactEmail">Email</label>
+                        <input id="contactEmail" type="email" placeholder="school@example.com">
+                    </div>
+                    <div class="field">
+                        <label for="contactPhone">Phone</label>
+                        <input id="contactPhone" type="text" placeholder="+41 44 123 4567">
+                    </div>
+                    <div class="field">
+                        <label for="contactAddress">Address</label>
+                        <input id="contactAddress" type="text" placeholder="Main Street 12, Zurich">
+                    </div>
+                </form>
+                <div class="actions">
+                    <button class="btn primary" id="registerBtn">Submit request</button>
+                </div>
+                <div class="status" id="registerStatus" aria-live="polite"></div>
+            </section>
+
+            <section class="card full reveal status-card" id="statusSection">
+                <div class="step">Status</div>
+                <h2>Check approval status</h2>
+                <p>Use your school ID and password to see the approval state.</p>
+                <form id="schoolStatusForm" class="form-grid">
+                    <div class="field">
+                        <label for="statusSchoolId">School ID</label>
+                        <input id="statusSchoolId" type="text" placeholder="SCH-001" required>
+                    </div>
+                    <div class="field">
+                        <label for="statusPassword">School password</label>
+                        <input id="statusPassword" type="password" placeholder="Enter your password" required>
+                    </div>
+                </form>
+                <div class="actions">
+                    <button class="btn ghost" id="statusBtn" type="button">Check status</button>
+                </div>
+                <div class="status" id="statusResult" aria-live="polite"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="school-register.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# Exclude generated presentation/report artifacts and app output
+*.pptx
+*.pdf
+*.docx
+report*
+
+# Exclude helper scripts used only for presentation/report generation
+/tools/
+
+# Exclude runtime-generated uploads
+registry-service/uploads/

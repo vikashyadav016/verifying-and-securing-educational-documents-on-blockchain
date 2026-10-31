@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="page">
+        <header class="hero reveal">
+            <div class="hero-content">
+                <div class="kicker">Admin Login</div>
+                <h1>Sign in to approve schools and upload certificates.</h1>
+                <p>Use the hardcoded admin credentials to access the admin dashboard.</p>
+                <div class="hero-actions">
+                    <a class="btn ghost" href="login.html" style="text-decoration:none;">Back to login</a>
+                </div>
+            </div>
+            <div class="hero-card">
+                <ul>
+                    <li><span class="pill">Admin</span> Review requests</li>
+                    <li><span class="pill">Inbox</span> Upload to blockchain</li>
+                </ul>
+            </div>
+        </header>
+
+        <main class="auth-grid">
+            <section class="panel reveal">
+                <h2>Admin credentials</h2>
+                <form id="adminLoginForm" class="list">
+                    <div class="field">
+                        <label for="adminUser">Admin username</label>
+                        <input id="adminUser" type="text" placeholder="admin" required>
+                    </div>
+                    <div class="field">
+                        <label for="adminPassword">Admin password</label>
+                        <input id="adminPassword" type="password" placeholder="admin123" required>
+                    </div>
+                    <button class="btn secondary" type="submit">Login</button>
+                </form>
+                <div class="status" id="adminLoginStatus" aria-live="polite"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="admin-login.js"></script>
+</body>
+
+</html>
